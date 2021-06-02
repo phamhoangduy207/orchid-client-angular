@@ -1,0 +1,61 @@
+<div class="displayTable">
+  <div class="displayTableCell">
+    <form action="" class="needs-validation" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="authBlock">
+        <h3>Sign Up</h3>
+
+        <div class="formGroup">
+          <input type="email" class="formControl" placeholder="Email Address" formControlName="email">
+          <div *ngIf="submitted && formControl.email.errors" class="text-danger">
+            <div *ngIf="formControl.email.errors.email">Please provide a valid email!</div>
+            <div *ngIf="formControl.email.errors.required">An email is required!</div>
+          </div>
+        </div>
+
+        <div class="formGroup">
+          <input type="password" class="formControl" placeholder="Password" formControlName="password">
+          <div *ngIf="submitted && formControl.password.errors" class="text-danger">
+            <div *ngIf="formControl.password.errors.required">Password is required.</div>
+            <div *ngIf="formControl.password.errors.pattern">
+              <!-- <h3>Password must contain the following:</h3> -->
+              <ul>
+                <li>Password should be alphanumeric</li>
+                <li>A letter of the password should be capital</li>
+                <li>Password must contain a special character (@, $, !, &, etc)</li>
+                <li>Password length must be greater than 7 characters</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="formGroup">
+          <button type="submit" class="btn btnPrimary">Sign up</button>
+        </div>
+
+        <div class="formGroup">
+          <span class="or"><span class="orInner">Or</span></span>
+        </div>
+
+        <!-- Continue with Google -->
+        <div class="formGroup">
+          <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+            <i class="fab fa-google-plus-g"></i>
+            Continue with Google
+          </button>
+        </div>
+
+        <!-- Continue with Facebook -->
+        <div class="formGroup">
+          <button type="button" class="btn facebookBtn">
+            <i class="fab fa-facebook"></i>
+            Continue with Facebook
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="redirectToLogin">
+      <span>Already have an account? <span class="redirect" routerLink="/login">Log In</span></span>
+    </div>
+  </div>
+
+</div>

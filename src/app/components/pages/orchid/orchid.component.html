@@ -1,0 +1,13 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="info" nbSpinnerSize="giant" nbSpinnerMessage="loading...">
+    <nb-card-header>
+        <h6>Orchids<span> <button nbTooltip="Reset filters" nbButton size="tiny" status="" (click)="showAll()">
+                    <nb-icon icon="refresh-outline"></nb-icon>
+                </button>
+            </span></h6>
+    </nb-card-header>
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="src" (deleteConfirm)="onDeleteConfirm($event)"
+            (editConfirm)="onSaveConfirm($event)" (createConfirm)="onCreateConfirm($event)">
+        </ng2-smart-table>
+    </nb-card-body>
+</nb-card>

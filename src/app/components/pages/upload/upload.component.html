@@ -1,0 +1,3 @@
+<label nbButton size="small" shape="round" status="info" for="upload">Browse</label>
+<input id="upload" type="file" multiple (change)="selectFiles($event)" accept=".png,.jpg" style="display: none;"/>
+<button nbButton size="small" shape="round" status="info" (click)="uploadFiles()">Upload Images</button>
